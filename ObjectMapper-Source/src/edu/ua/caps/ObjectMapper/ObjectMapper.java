@@ -143,7 +143,7 @@ public class ObjectMapper {
 
 	///////////////////////////////////////////////////////////////////BEGIN XML
 
-	public static String toXML(OMXmlObject xmlObject) {
+	public static String toXML(Object xmlObject) {
 		String xmlString = "";
 		xmlString += ObjectMapper.stringForObject(xmlObject.body,
 				xmlObject.body.getClass(), true);
