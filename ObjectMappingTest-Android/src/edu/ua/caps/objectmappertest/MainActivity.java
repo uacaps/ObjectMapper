@@ -11,34 +11,44 @@ import edu.ua.caps.ObjectMapper.ObjectMapper;
 
 public class MainActivity extends Activity {
 
-	public TextView mTxt;
-	SomeObject so;
-	OMXmlObject xml,xml2;
-	
-	Note note;
+	private TextView mTxt;
+	private SomeObject so;
+	private OMXmlObject xml,xml2;
+	private Note note;
+	private ArrayList<String> reallys = new ArrayList<String>();
+	private ArrayList<SomeOtherObject> bam = new ArrayList<SomeOtherObject>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		ArrayList<String> reallys = new ArrayList<String>();
 		
+		//Adding content to a string arrayList
 		reallys.add("really");
 		reallys.add("really");
 		reallys.add("really");
 		reallys.add("really");
 		
-		ArrayList<SomeOtherObject> bam = new ArrayList<SomeOtherObject>();
+		//Adding Content to a complex ArrayList
 		bam.add(new SomeOtherObject("hi", "bu bye"));
 		bam.add(new SomeOtherObject("hola", "Asta Lavista"));
 		bam.add(new SomeOtherObject("bonjour", "au revoir"));
-		so = new SomeObject( 1 ,"This", "is", "something", reallys, "freaking", "Cool",bam,new SomeOtherObject("sup", "dueces"));
-		xml = new OMXmlObject(so);
-		String text = ObjectMapper.toXML(xml);
-		note = new Note("Matt", "Aaron", "XML MAPPING", "So I think this should work but we shall see");
-		xml2 = new OMXmlObject(note);
-		String noteToMatt = ObjectMapper.toXML(xml2);
 		
+		//Adding Content to a Complex object
+		so = new SomeObject( 1 ,"This", "is", "something", reallys, "freaking", "Cool",bam,new SomeOtherObject("sup", "dueces"));
+		
+		//Creating an OMXmlObject with the SomeObject as a parameter
+		xml = new OMXmlObject(so);
+		//Creating an xml String from the OMXmlObject
+		String text = ObjectMapper.toXML(xml);
+		
+	
+		note = new Note("Matt", "Aaron", "XML MAPPING", "So I think this should work but we shall see");
+		//Creating an OMXmlObject with the note as a parameter
+		xml2 = new OMXmlObject(note);
+		//Creating an xml String from the OMXmlObject
+		String noteToMatt = ObjectMapper.toXML(xml2);
+		//Create complex object from xml String. all you need to do is tell it what object you want to map the xml to.
 		Note note2 = (Note) ObjectMapper.fromXML(noteToMatt, Note.class);
 		mTxt = (TextView) findViewById(R.id.mtxt1);
 		mTxt.setText(text +"\n\n\n\n" + noteToMatt  +"\n\n\n\nTo: " + note2.getTo() + "\nFrom: "+ note.getFrom()+ "\nHeading: "+ note.getHeading()+ "\n\nBody:\n"+ note.getBody());
