@@ -45,8 +45,7 @@ public class ObjectMapper {
 	public static final String datePatternString = "yyyy-MM-dd'T'HH:mm:ss";
 	public static final String dateTimeZone = "UTC";
 
-	// ////////////////////////////////////////////////////////////////////////////////////BEGIN
-	// SOAP
+	///////////////////////////////////////////////////////////////////BEGIN SOAP
 	/**
 	 * This method is called to serialize an object to its SOAP representation.
 	 * 
@@ -118,11 +117,9 @@ public class ObjectMapper {
 		return newObject;
 	}
 
-	// ////////////////////////////////////////////////////////////////////////////////////END
-	// SOAP
+	///////////////////////////////////////////////////////////////////END SOAP
 
-	// /////////////////////////////////////////////////////////////////////////////////////////BEGIN
-	// XML
+	///////////////////////////////////////////////////////////////////BEGIN XML
 
 	public static String toXML(OMXmlObject xmlObject) {
 		String xmlString = "";
@@ -132,10 +129,8 @@ public class ObjectMapper {
 	}
 
 	/**
-	 * @author afleshner Something is odd the first Variable being mapped back
-	 *         is returning null ??? not sure why yet.
-	 * 
-	 *         * This method is called to deserialize a SOAP string to its
+	 * @author afleshner  
+	 * This method is called to deserialize a XML string to its
 	 *         designated object representation.
 	 * 
 	 * @param soapString
@@ -163,11 +158,9 @@ public class ObjectMapper {
 		return newObject;
 	}
 
-	// ///////////////////////////////////////////////////////////////////////////////////////////END
-	// XML
+	///////////////////////////////////////////////////////////////////END XML
 
-	// /////////////////////////////////////////////////////////////////////////////////////BEGIN
-	// HELPERS
+	///////////////////////////////////////////////////////////////////BEGIN HELPERS
 
 	@SuppressWarnings("unchecked")
 	private static String stringForObject(Object object, Class<?> desiredClass,
