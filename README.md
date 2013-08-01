@@ -16,7 +16,7 @@ The OMSerailizer is an annotation interface that allows you to map the correct v
 Ex. 
 
 ```
-@OMSerailizer("name")
+@OMSerializer("name")
 private String _name;
 ```
 Now instead of the ObjectMapper mapping "_name" to the variable name it will map it to "name" and visa versa on the way back to being an object.
