@@ -169,16 +169,6 @@ public class ObjectMapper {
 	// /////////////////////////////////////////////////////////////////////////////////////BEGIN
 	// HELPERS
 
-	// TODO Just a thought I think this massive function can be broken up into a
-	// couple smaller ones for readability
-	// TODO Just a thought I think this massive function can be broken up into a
-	// couple smaller ones for readability
-	// TODO Just a thought I think this massive function can be broken up into a
-	// couple smaller ones for readability
-	// TODO Just a thought I think this massive function can be broken up into a
-	// couple smaller ones for readability
-	// 150+ lines currently... can we bring it down to about 30lines? with a few
-	// more methods 
 	@SuppressWarnings("unchecked")
 	private static String stringForObject(Object object, Class<?> desiredClass,
 			Boolean printTopClass) {
