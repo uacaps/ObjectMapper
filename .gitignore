@@ -1,3 +1,10 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+
+
 # built application files
 *.apk
 *.ap_
