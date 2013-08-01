@@ -41,9 +41,31 @@ import java.util.TimeZone;
 import org.apache.commons.codec.binary.Base64;
 
 public class ObjectMapper {
-
-	public static final String datePatternString = "yyyy-MM-dd'T'HH:mm:ss";
-	public static final String dateTimeZone = "UTC";
+	
+	/**
+	 * generic datePatternString = "yyyy-MM-dd'T'HH:mm:ss";
+	 **/
+	private static String datePatternString = "yyyy-MM-dd'T'HH:mm:ss";
+	/**
+	 * generic dateTimeZone = "UTC";
+	 **/
+	private static String dateTimeZone = "UTC";
+	
+	
+	public static void setDatePatterString(String datePattern){
+		datePatternString =  datePattern;
+	}
+	
+	public static String getDatePatternString(){
+		return datePatternString;
+	}
+	
+	public static void setDateTimeZne(String timeZone){
+		dateTimeZone = timeZone;
+	}
+	public static String getDateTimeZone(){
+		return dateTimeZone;
+	}
 
 	///////////////////////////////////////////////////////////////////BEGIN SOAP
 	/**
