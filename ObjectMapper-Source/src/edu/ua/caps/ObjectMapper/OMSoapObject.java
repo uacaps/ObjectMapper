@@ -29,6 +29,11 @@
 
 package edu.ua.caps.ObjectMapper;
 
+/**
+ * OMSoapObject is the object that you throw your header and body Objects into. 
+ * So that the magic can happen. 
+ **/
+
 public class OMSoapObject {
 	
 	public Object header;
