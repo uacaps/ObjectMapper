@@ -34,10 +34,19 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * @author adfleshner
+ * OMSerialier is an Annotaion Interface that allows you 
+ * to name the object variable to the name that you would like
+ * the Xml to map to and visa versa by using reflection.
+ * 
+ * Ex.
+ * @OMSerializer("name")
+ * private String _name;
+ * 
+ **/
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface OMSerializer {
-	
 	String value();
-
 }
