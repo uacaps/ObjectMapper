@@ -9,17 +9,61 @@ A java library for the automatic mapping of custom classes to and from XML/SOAP.
 Here you can Download the latest jar. to add into your project.
 [ObjectMapper 1.0](https://github.com/uacaps/ObjectMapper/raw/master/ObjectMapper.jar)
 
-##OMSerailizer
+##OMSerailizer##
 
 The OMSerailizer is an annotation interface that allows you to map the correct variable name to serialize to for soap and xml.
 
 Ex. 
 
-```
+```java
 @OMSerializer("name")
 private String _name;
 ```
 Now instead of the ObjectMapper mapping "_name" to the variable name it will map it to "name" and visa versa on the way back to being an object.
+
+##Object Setup##
+
+This is a simple custom object.
+To name variables you may name them exactly how you want them to be mapped in the xml\soap or you may use the @OMSerializer as shown above.
+Each object must have a blank constructor so that me the ObjectMapper is able to map to it and do its magic.
+Otherwise you may set the variable how you like public, protected, private or default it works no matter how those are set. 
+
+
+Ex.
+```java
+public SomeObject{
+
+ private String String1;
+ @OMSerializer("String2")
+ private String _str2;
+
+ public SomeObject(){
+  //NOTE: You must have a blank contructor. For ObjectMapper to work correctly.
+ }
+ 
+ public SomeObject(String str1,String str2){
+  this.String1 = str1;
+  this._str2 = str2;
+ }
+
+
+ public String getString1(){
+  return this.String1;
+ }
+ public String get_str2(){
+  return this._str2;
+ }
+ public void set_str1(String string){
+  this.String1 = string;
+ }
+ public void set_str2(String string){
+  this._str2 = string;
+ }
+
+}
+```
+
+
 
 --------------------
 ## License ##
