@@ -23,42 +23,42 @@ Now instead of the ObjectMapper mapping "_name" to the variable name it will map
 
 ##Object Setup##
 
-This is a simple custom object.
-To name variables you may name them exactly how you want them to be mapped in the xml\soap or you may use the @OMSerializer to override the name as shown above.
-Each object must have a blank constructor so that me the ObjectMapper is able to map to it and do its magic.
-Otherwise you may set the variable how you like public, protected, private or default it works no matter how those are set. 
+* This is a simple custom object.
+* To name variables you may name them exactly how you want them to be mapped in the xml\soap or you may use the @OMSerializer to override the name as shown above.
+* Each object must have a blank constructor so that me the ObjectMapper is able to map to it and do its magic.
+* Otherwise you may set the variable how you like public, protected, private or default it works no matter how those are set. 
 
 
 Ex.
 ```java
 public SomeObject{
 
- private String String1;
- @OMSerializer("String2")
- private String _str2;
+	private String String1;
+	@OMSerializer("String2")
+	private String _str2;
 
- public SomeObject(){
-  //NOTE: You must have a blank contructor. For ObjectMapper to work correctly.
- }
- 
- public SomeObject(String str1,String str2){
-  this.String1 = str1;
-  this._str2 = str2;
- }
-
-
- public String getString1(){
-  return this.String1;
- }
- public String get_str2(){
-  return this._str2;
- }
- public void set_str1(String string){
-  this.String1 = string;
- }
- public void set_str2(String string){
-  this._str2 = string;
- }
+	public SomeObject(){
+		//NOTE: You must have a blank contructor. For ObjectMapper to work correctly.
+	}
+		 
+	public SomeObject(String str1,String str2){
+		this.String1 = str1;
+		this._str2 = str2;
+	}
+		
+		
+	public String getString1(){
+		return this.String1;
+	}
+	public String get_str2(){
+		return this._str2;
+	}
+	public void set_str1(String string){
+		this.String1 = string;
+	}
+	public void set_str2(String string){
+		this._str2 = string;
+	}
 
 }
 ```
