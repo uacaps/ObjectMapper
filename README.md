@@ -5,9 +5,9 @@ A java library for the automatic mapping of custom classes to and from XML/SOAP.
 
 ![ScreenShot](https://raw.github.com/uacaps/ObjectMapper/master/ScreenShots/xmlScreen-01.png)
 
-##Download Jar
+##Download
 Here you can Download the latest jar. to add into your project.
-[ObjectMapper 1.0](https://github.com/uacaps/ObjectMapper/raw/master/ObjectMapper.jar)
+[ObjectMapper 1.0.1](https://github.com/uacaps/ObjectMapper/raw/master/ObjectMapper.jar)
 
 ##OMSerailizer##
 
@@ -24,7 +24,7 @@ Now instead of the ObjectMapper mapping "_name" to the variable name it will map
 ##Object Setup##
 
 This is a simple custom object.
-To name variables you may name them exactly how you want them to be mapped in the xml\soap or you may use the @OMSerializer as shown above.
+To name variables you may name them exactly how you want them to be mapped in the xml\soap or you may use the @OMSerializer to override the name as shown above.
 Each object must have a blank constructor so that me the ObjectMapper is able to map to it and do its magic.
 Otherwise you may set the variable how you like public, protected, private or default it works no matter how those are set. 
 
