@@ -63,7 +63,52 @@ public SomeObject{
 }
 ```
 
+##Serailizing##
 
+**Object to Xml**
+
+To serialize an object to xml
+
+1. Make the object and set variables.
+
+2. Call ObjectMapper.toXML(YOUROBJECT);
+
+Ex.
+
+```java
+SomeObject so = new SomeObject("Freaking", "Magic");
+String Text = ObjectMapper.toXml(so);
+System.out.println(text);
+```
+Output :
+```
+<SomeObject>
+	<String1>Freaking</String1>
+	<String2>Magic</String2>
+</SomeObject>
+```
+##Deserailizing##
+
+**Xml to Object**
+
+To deserialize back to object.
+
+1. Valid XML
+
+2. Object to map back to.
+
+3. Call ObjectMapper.fromXml(YOURXML, YOUROBJECT.class);
+
+```java
+SomeObject so = new SomeObject("Freaking", "Magic");
+String Text = ObjectMapper.toXml(so);
+SomeObject so2 = ObjectMapper.fromXml(text,SomeObject.class);
+
+System.out.println(so2.String1);
+
+```
+
+Output: Freaking
 
 --------------------
 ## License ##
