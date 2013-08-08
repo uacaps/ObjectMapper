@@ -111,10 +111,13 @@ System.out.println(so2.String1);
 Output: Freaking
 
 **Object to soap**
+
 // Next TODO
 
 **Soap to Object **
+
 // Next TODO
+
 --------------------
 ## License ##
 
