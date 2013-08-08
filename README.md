@@ -114,7 +114,7 @@ Output: Freaking
 
 // Next TODO
 
-**Soap to Object **
+**Soap to Object**
 
 // Next TODO
 
