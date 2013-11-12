@@ -29,23 +29,37 @@
 
 package edu.ua.caps.ObjectMapper;
 
+import android.R.integer;
+
 //SCANNER CLASS
-class OMScanner {
+public class OMScanner {
 		private char[] _baseString;
 		private int _index;
 		
-		protected OMScanner(String string){
+		public OMScanner(String string){
 			_baseString = string.toCharArray();
 			_index = 0;
 		}
 		
-		protected char readCharacter() {
+		public String getScanString() {
+			return new String(_baseString);
+		}
+		
+		public int getScanIndex(){
+			return _index;
+		}
+		
+		public void setScanIndex(int index){
+			_index = index;
+		}
+		
+		public char readCharacter() {
 			char character = _baseString[_index];
 			_index++;
 			return character;
 		}
 		
-		protected String readNextTagValue() {
+		public String readNextTagValue() {
 			String string = "";
 			
 			boolean done = false;
@@ -74,11 +88,11 @@ class OMScanner {
 			return string;
 		}
 		
-		protected char nextCharacter(){
+		public char nextCharacter(){
 			return _baseString[_index];
 		}
 		
-		protected String scanToChar(char c) {
+		public String scanToChar(char c) {
 			String string = "";
 			
 			boolean done = false;
@@ -94,7 +108,59 @@ class OMScanner {
 			return string;
 		}
 		
-		protected void skipToString(String skipString) {
+		public String scanToString(String string) {
+			String returnString = "";
+			
+			String potentialMatchString = "";
+			
+			boolean done = false;
+			while (!done) {
+				char newChar = ' ';
+				if (this._baseString.length > this._index) {
+					newChar = this.readCharacter();
+				} 
+				else {
+					return returnString + potentialMatchString;
+				}
+				
+				if (potentialMatchString.equals("")) {
+					if (newChar == string.charAt(0)) {
+						if (string.length() == 1) {
+							done = true;
+							break;
+						} else {
+							potentialMatchString = potentialMatchString + newChar;
+							continue;
+						}
+						
+					}
+				}
+				else {
+					//We are done!
+					if ((potentialMatchString+newChar).equals(string)) {
+						done = true;
+						break;
+					}
+					//It is a continued match. Let's keep going and see how it plays out
+					else if ((potentialMatchString+newChar).equals(string.substring(0, (potentialMatchString+newChar).length()))) {
+						potentialMatchString = potentialMatchString + newChar;
+						continue;
+					}
+					else {
+						//Add and reset!
+						returnString = returnString + potentialMatchString + newChar;
+						potentialMatchString = "";
+						continue;
+					}
+				}
+				
+				returnString = returnString + newChar;
+			}
+			
+			return returnString;
+		}
+		
+		public void skipToString(String skipString) {
 			String string = "";
 			int tempIndex = _index;
 			
@@ -111,7 +177,7 @@ class OMScanner {
 			}
 		}
 		
-		protected String nextXMLTag() {
+		public String nextXMLTag() {
 			boolean done = false;
 			int tempIndex = _index;
 			String string = "";
@@ -151,7 +217,7 @@ class OMScanner {
 			return string;
 		}
 		
-		protected boolean hasNext() {
+		public boolean hasNext() {
 			if (_index < _baseString.length) {
 				return true;
 			}
@@ -159,7 +225,7 @@ class OMScanner {
 			return false;
 		}
 		
-		protected boolean endOfTag(String tag) {
+		public boolean endOfTag(String tag) {
 			boolean done = false;
 			int tempIndex = _index;
 			String string = "";
@@ -190,7 +256,7 @@ class OMScanner {
 			
 		}
 		
-		protected void skipEmptyTag() {
+		public void skipEmptyTag() {
 			this.skipToString(" />");
 		}
 	}
