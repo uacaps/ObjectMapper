@@ -9,9 +9,9 @@ A java library for the automatic mapping of custom classes to and from XML/SOAP.
 Here you can Download the latest jar. to add into your project.
 [ObjectMapper 1.0.1](https://github.com/uacaps/ObjectMapper/raw/master/ObjectMapper.jar)
 
-##OMSerailizer##
+##OMSerializer##
 
-The OMSerailizer is an annotation interface that allows you to map the correct variable name to serialize to for soap and xml.
+The OMSerializer is an annotation interface that allows you to map the correct variable name to serialize to for soap and xml.
 
 Ex. 
 
@@ -63,7 +63,7 @@ public SomeObject{
 }
 ```
 
-##Serailizing##
+##Serializing##
 
 **Object to Xml**
 
@@ -87,7 +87,7 @@ Output :
 	<String2>Magic</String2>
 </SomeObject>
 ```
-##Deserailizing##
+##Deserializing##
 
 **Xml to Object**
 
